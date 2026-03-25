@@ -126,9 +126,6 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className={styles.footer}>
-        <p>© 2025 Gerardo German Rios · Diseñado con 💙 en Chaco, Argentina</p>
-      </div>
     </section>
   )
 }

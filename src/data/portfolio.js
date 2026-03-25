@@ -2,6 +2,7 @@ export const personal = {
   name: "Gerardo Rios",
   role: "Analista de Sistemas · Full Stack Developer JR",
   location: "Barranqueras, Chaco — Argentina",
+  bio: "Desarrollo interfaces y sistemas web con foco en claridad visual, mantenimiento simple y experiencias que ayuden de verdad a los usuarios.",
   email: "gerarios26@gmail.com",
   phone: "(0362) 154709877",
   web: "https://rios-gerardo.netlify.app/",
@@ -169,4 +170,11 @@ export const certifications = [
   { name: "React", org: "Informatorio", year: "2025", icon: "⚛️" },
   { name: "Desarrollo Web con Django & Python", org: "Informatorio", year: "2024", icon: "🐍" },
   { name: "Data Analytics con Power BI", org: "Informatorio", year: "2024", icon: "📊" },
+]
+
+export const heroStats = [
+  { value: "+13", label: "años de experiencia" },
+  { value: `${projects.length}`, label: "proyectos destacados" },
+  { value: `${certifications.length}`, label: "certificaciones" },
+  { value: "5+", label: "tecnologías activas" },
 ]

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useTheme } from '../context/ThemeContext'
 import styles from './Navbar.module.css'
 
@@ -7,6 +7,7 @@ const navLinks = [
   { label: 'Skills', href: '#skills' },
   { label: 'Proyectos', href: '#projects' },
   { label: 'Experiencia', href: '#experience' },
+  { label: 'Certificaciones', href: '#certifications' },
   { label: 'Contacto', href: '#contact' },
 ]
 
@@ -22,6 +23,34 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    const sections = navLinks
+      .map(({ href }) => document.getElementById(href.replace('#', '')))
+      .filter(Boolean)
+
+    if (!sections.length) return undefined
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+
+        if (visible?.target?.id) {
+          setActive(visible.target.id)
+        }
+      },
+      {
+        rootMargin: '-28% 0px -58% 0px',
+        threshold: [0.15, 0.35, 0.6],
+      }
+    )
+
+    sections.forEach(section => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
+
   const handleNav = (href) => {
     setMenuOpen(false)
     setActive(href.replace('#', ''))
@@ -29,18 +58,19 @@ export default function Navbar() {
 
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-      <a href="#hero" className={styles.logo}>
+      <a href="#hero" className={styles.logo} onClick={() => handleNav('#hero')}>
         <span className={styles.logoMark}>GR</span>
         <span className={styles.logoText}>Gerardo Rios</span>
       </a>
 
-      <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
+      <ul id="primary-navigation" className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
         {navLinks.map(({ label, href }) => (
           <li key={href}>
             <a
               href={href}
               className={`${styles.link} ${active === href.replace('#', '') ? styles.activeLink : ''}`}
               onClick={() => handleNav(href)}
+              aria-current={active === href.replace('#', '') ? 'location' : undefined}
             >
               {label}
             </a>
@@ -50,6 +80,7 @@ export default function Navbar() {
 
       <div className={styles.actions}>
         <button
+          type="button"
           className={styles.themeToggle}
           onClick={toggle}
           aria-label="Cambiar tema"
@@ -74,12 +105,15 @@ export default function Navbar() {
           )}
         </button>
 
-        <a href="#contact" className={styles.ctaBtn}>Contactame</a>
+        <a href="#contact" className={styles.ctaBtn} onClick={() => handleNav('#contact')}>Contactame</a>
 
         <button
+          type="button"
           className={styles.hamburger}
           onClick={() => setMenuOpen(o => !o)}
-          aria-label="Menu"
+          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
         >
           <span className={`${styles.bar} ${menuOpen ? styles.barOpen1 : ''}`}/>
           <span className={`${styles.bar} ${menuOpen ? styles.barOpen2 : ''}`}/>

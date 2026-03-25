@@ -51,7 +51,6 @@ export default function Projects() {
               <div
                 className={styles.imageWrap}
                 style={{ '--project-color': p.color }}
-                onClick={() => setActive(active === p.id ? null : p.id)}
               >
                 {p.image && !imgErrors[p.id] ? (
                   <img
@@ -66,9 +65,7 @@ export default function Projects() {
                   </div>
                 )}
                 <div className={styles.imageOverlay}>
-                  <span className={styles.overlayText}>
-                    {active === p.id ? 'Cerrar ↑' : 'Ver detalles ↓'}
-                  </span>
+                  <span className={styles.overlayText}>Vista previa</span>
                 </div>
                 <span className={styles.yearBadge}>{p.year}</span>
               </div>
@@ -89,7 +86,6 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className={styles.githubBtn}
                       title="Ver en GitHub"
-                      onClick={e => e.stopPropagation()}
                     >
                       <GitHubIcon />
                     </a>
@@ -110,7 +106,11 @@ export default function Projects() {
                   <p className={styles.description}>{p.description}</p>
 
                   {/* Expandable highlights */}
-                  <div className={`${styles.highlights} ${active === p.id ? styles.highlightsVisible : ''}`}>
+                  <div
+                    id={`project-highlights-${p.id}`}
+                    className={`${styles.highlights} ${active === p.id ? styles.highlightsVisible : ''}`}
+                    aria-hidden={active !== p.id}
+                  >
                     <p className={styles.highlightsTitle}>Características clave</p>
                     <ul className={styles.highlightsList}>
                       {p.highlights.map((h, idx) => (
@@ -124,9 +124,13 @@ export default function Projects() {
 
                   <div className={styles.cardFooter}>
                     <button
+                      type="button"
                       className={styles.expandBtn}
                       style={{ color: p.color }}
                       onClick={() => setActive(active === p.id ? null : p.id)}
+                      aria-expanded={active === p.id}
+                      aria-controls={`project-highlights-${p.id}`}
+                      aria-label={active === p.id ? `Ocultar características de ${p.title}` : `Mostrar características de ${p.title}`}
                     >
                       {active === p.id ? '↑ Ver menos' : '↓ Ver más'}
                     </button>
@@ -136,7 +140,6 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.githubLink}
-                      onClick={e => e.stopPropagation()}
                     >
                       <GitHubIcon />
                       Ver código

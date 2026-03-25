@@ -1,4 +1,4 @@
-import { experience, certifications } from '../data/portfolio'
+import { experience } from '../data/portfolio'
 import styles from './Experience.module.css'
 
 export default function Experience() {
@@ -41,51 +41,28 @@ export default function Experience() {
             ))}
           </div>
 
-          {/* Certifications */}
-          <div className={styles.certsCol}>
-            <h3 className={styles.colTitle}>
+          {/* Education box */}
+          <div className={styles.eduBox}>
+            <h3 className={styles.colTitle} style={{ marginBottom: '16px' }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
               </svg>
-              Certificaciones
+              Educación
             </h3>
-
-            <div className={styles.certsList}>
-              {certifications.map((cert, i) => (
-                <div key={i} className={styles.certCard} style={{ animationDelay: `${i * 0.1}s` }}>
-                  <span className={styles.certIcon}>{cert.icon}</span>
-                  <div className={styles.certInfo}>
-                    <p className={styles.certName}>{cert.name}</p>
-                    <p className={styles.certMeta}>{cert.org} · {cert.year}</p>
-                  </div>
-                  <span className={styles.certBadge}>{cert.year}</span>
+            {[
+              { title: 'Analista de Sistemas', place: 'UEP N° 87', year: '2012' },
+              { title: 'Analista de Programador', place: 'UEP N° 87 · Título intermedio', year: '2009' },
+              { title: 'Bachiller', place: 'Esc. Gral. José M. Paz N° 76', year: '2004' },
+            ].map((e, i) => (
+              <div key={i} className={styles.eduItem}>
+                <div>
+                  <p className={styles.eduTitle}>{e.title}</p>
+                  <p className={styles.eduPlace}>{e.place}</p>
                 </div>
-              ))}
-            </div>
-
-            {/* Education box */}
-            <div className={styles.eduBox}>
-              <h3 className={styles.colTitle} style={{ marginBottom: '16px' }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                  <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                </svg>
-                Educación
-              </h3>
-              {[
-                { title: 'Analista de Sistemas', place: 'UEP N° 87', year: '2012' },
-                { title: 'Analista de Programador', place: 'UEP N° 87 · Título intermedio', year: '2009' },
-                { title: 'Bachiller', place: 'Esc. Gral. José M. Paz N° 76', year: '2004' },
-              ].map((e, i) => (
-                <div key={i} className={styles.eduItem}>
-                  <div>
-                    <p className={styles.eduTitle}>{e.title}</p>
-                    <p className={styles.eduPlace}>{e.place}</p>
-                  </div>
-                  <span className={styles.eduYear}>{e.year}</span>
-                </div>
-              ))}
-            </div>
+                <span className={styles.eduYear}>{e.year}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

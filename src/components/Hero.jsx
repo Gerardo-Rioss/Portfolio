@@ -1,7 +1,10 @@
-import { personal } from '../data/portfolio'
+import { heroStats, personal } from '../data/portfolio'
 import styles from './Hero.module.css'
 
 export default function Hero() {
+  const [firstName, ...lastNameParts] = personal.name.split(' ')
+  const lastName = lastNameParts.join(' ')
+
   return (
     <section id="hero" className={styles.hero}>
       {/* Background grid */}
@@ -19,8 +22,8 @@ export default function Hero() {
           )}
 
           <h1 className={styles.name}>
-            <span className={styles.nameFirst}>Gerardo</span>
-            <span className={styles.nameLast}>Rios</span>
+            <span className={styles.nameFirst}>{firstName}</span>
+            <span className={styles.nameLast}>{lastName}</span>
           </h1>
 
           <p className={styles.role}>{personal.role}</p>
@@ -76,22 +79,12 @@ export default function Hero() {
           </div>
 
           <div className={styles.statsGrid}>
-            <div className={styles.statCard}>
-              <span className={styles.statNum}>+13</span>
-              <span className={styles.statLabel}>años de experiencia</span>
-            </div>
-            <div className={styles.statCard}>
-              <span className={styles.statNum}>6</span>
-              <span className={styles.statLabel}>proyectos destacados</span>
-            </div>
-            <div className={styles.statCard}>
-              <span className={styles.statNum}>4</span>
-              <span className={styles.statLabel}>certificaciones</span>
-            </div>
-            <div className={styles.statCard}>
-              <span className={styles.statNum}>5+</span>
-              <span className={styles.statLabel}>tecnologías activas</span>
-            </div>
+            {heroStats.map((stat) => (
+              <div key={stat.label} className={styles.statCard}>
+                <span className={styles.statNum}>{stat.value}</span>
+                <span className={styles.statLabel}>{stat.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
