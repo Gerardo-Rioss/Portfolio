@@ -75,7 +75,6 @@
   width: 100%;
   height: 200px;
   overflow: hidden;
-  cursor: pointer;
   background: var(--bg-3);
   flex-shrink: 0;
 }
@@ -185,15 +184,15 @@
 .projectSubtitle {
   font-size: 11.5px;
   font-weight: 500;
-  color: var(--text-2);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.8px;
 }
 
 .githubBtn {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -201,13 +200,14 @@
   border: 1px solid var(--border);
   color: var(--text-2);
   flex-shrink: 0;
-  transition: color 0.2s, background 0.2s, transform 0.2s;
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
 }
 
 .githubBtn:hover {
-  color: var(--text);
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
   background: var(--card-hover);
-  transform: scale(1.1);
+  transform: translateY(-2px);
 }
 
 /* ── TAGS ── */
@@ -252,7 +252,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--text-3);
+  color: var(--text-muted);
   margin-bottom: 8px;
   margin-top: 4px;
 }
@@ -285,27 +285,45 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid var(--border);
 }
 
 .expandBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.3px;
-  padding: 0;
-  background: none;
-  border: none;
+  padding: 8px 14px;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
 }
 
-.expandBtn:hover { opacity: 0.7; }
+.expandBtn:hover {
+  background: var(--card-hover);
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+  transform: translateY(-2px);
+}
+
+.expandBtn:focus-visible,
+.githubBtn:focus-visible,
+.githubLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 
 .githubLink {
   display: inline-flex;
   align-items: center;
+  min-height: 40px;
   gap: 6px;
   font-size: 12.5px;
   font-weight: 600;
@@ -318,9 +336,10 @@
 }
 
 .githubLink:hover {
-  color: var(--text);
+  color: var(--accent);
   background: var(--card-hover);
-  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {

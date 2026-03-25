@@ -1,5 +1,5 @@
 .section {
-  padding: 100px 2rem 0;
+  padding: 100px 2rem 44px;
   background: var(--bg-2);
 }
 
@@ -13,7 +13,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
-  padding-bottom: 80px;
+  padding-bottom: clamp(76px, 10vw, 112px);
 }
 
 .left {
@@ -88,6 +88,12 @@
   box-shadow: 0 8px 32px rgba(46,124,246,0.4);
 }
 
+.mailBtn:focus-visible,
+.contactCard:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .right {
   display: flex;
   flex-direction: column;
@@ -99,21 +105,23 @@
   align-items: center;
   gap: 14px;
   padding: 14px 16px;
+  min-height: 56px;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 14px;
   text-decoration: none;
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .contactCard:hover {
   border-color: var(--accent);
-  transform: translateX(4px);
+  background: var(--card-hover);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
 }
 
 .iconWrap {
-  width: 42px; height: 42px;
+  width: 44px; height: 44px;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -133,7 +141,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--text-3);
+  color: var(--text-muted);
 }
 
 .contactValue {
@@ -143,7 +151,7 @@
 }
 
 .arrow {
-  color: var(--text-3);
+  color: var(--text-muted);
   transition: color 0.2s, transform 0.2s;
 }
 
@@ -152,14 +160,10 @@
   transform: translateX(3px);
 }
 
-.footer {
-  border-top: 1px solid var(--border);
-  padding: 24px 0;
-  text-align: center;
-  font-size: 13px;
-  color: var(--text-3);
-}
-
 @media (max-width: 900px) {
-  .inner { grid-template-columns: 1fr; gap: 40px; }
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-bottom: 72px;
+  }
 }

@@ -12,6 +12,7 @@
   --text: #E6EDF3;
   --text-2: #8B949E;
   --text-3: #484F58;
+  --text-muted: #7A8592;
   --card-bg: #161B22;
   --card-hover: #1C2333;
   --nav-bg: rgba(13,17,23,0.85);
@@ -29,6 +30,7 @@
   --text: #0D1117;
   --text-2: #57606A;
   --text-3: #B0B8C4;
+  --text-muted: #6A737D;
   --card-bg: #FFFFFF;
   --card-hover: #F0F5FF;
   --nav-bg: rgba(246,248,252,0.88);
