@@ -135,16 +135,30 @@ export default function Projects() {
                       {active === p.id ? '↑ Ver menos' : '↓ Ver más'}
                     </button>
 
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.githubLink}
-                    >
-                      <GitHubIcon />
-                      Ver código
-                      <ExternalIcon />
-                    </a>
+                    <div className={styles.footerLinks}>
+                      {p.live && (
+                        <a
+                          href={p.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.demoLink}
+                          style={{ '--demo-color': p.color }}
+                        >
+                          <ExternalIcon />
+                          Live Demo
+                        </a>
+                      )}
+                      <a
+                        href={p.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.githubLink}
+                      >
+                        <GitHubIcon />
+                        Ver código
+                        <ExternalIcon />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
