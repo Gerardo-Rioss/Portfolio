@@ -8,31 +8,41 @@
   padding: 80px 2rem 60px;
 }
 
-/* Background grid */
-.grid {
+/* ─── ANIMATED ORBS ─── */
+.orb1 {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 60%);
+  pointer-events: none;
+  animation: orbFloat 10s ease-in-out infinite;
+}
+
+.orb2 {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 60%);
+  pointer-events: none;
+  animation: orbFloat2 13s ease-in-out infinite;
+}
+
+/* ─── ANIMATED DOTS ─── */
+.dots {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+  background-image: radial-gradient(var(--accent) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.15;
   pointer-events: none;
+  animation: dotsShift 20s linear infinite;
 }
 
-/* Glow blob */
-.blob {
-  position: absolute;
-  top: 10%;
-  right: -5%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(46,124,246,0.15) 0%, transparent 65%);
-  pointer-events: none;
-  animation: float 8s ease-in-out infinite;
-}
-
+/* ─── LAYOUT ─── */
 .inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -58,18 +68,18 @@
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background: rgba(39,174,96,0.12);
-  border: 1px solid rgba(39,174,96,0.25);
+  background: var(--accent-dim);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
   border-radius: 99px;
   font-size: 12.5px;
   font-weight: 500;
-  color: #27AE60;
+  color: var(--accent);
   width: fit-content;
 }
 
 .dot {
   width: 7px; height: 7px;
-  background: #27AE60;
+  background: var(--accent);
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -90,8 +100,13 @@
 
 .nameLast {
   font-size: clamp(52px, 7vw, 80px);
-  color: var(--accent);
+  background: linear-gradient(135deg, #10B981, #06B6D4, #10B981);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   letter-spacing: -2px;
+  animation: gradientShift 6s ease infinite;
 }
 
 .role {
@@ -126,13 +141,13 @@
   font-size: 14px;
   font-weight: 600;
   transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 20px rgba(46,124,246,0.3);
+  box-shadow: 0 4px 20px rgba(16,185,129,0.3);
 }
 
 .btnPrimary:hover {
   opacity: 0.9;
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(46,124,246,0.4);
+  box-shadow: 0 8px 28px rgba(16,185,129,0.4);
 }
 
 .btnPrimary:focus-visible,
@@ -208,6 +223,20 @@
   border-style: dashed;
 }
 
+/* Glow detrás de la foto */
+.photoGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(16,185,129,0.2) 0%, transparent 60%);
+  border-radius: 50%;
+  animation: glowPulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
 .photo {
   width: 240px; height: 240px;
   border-radius: 50%;
@@ -229,6 +258,7 @@
   filter: blur(20px);
 }
 
+/* ─── STATS ─── */
 .statsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -246,6 +276,7 @@
   flex-direction: column;
   gap: 3px;
   transition: border-color 0.2s, transform 0.2s;
+  animation: statSlide 0.5s ease both;
 }
 
 .statCard:hover {
@@ -257,7 +288,10 @@
   font-family: 'Syne', sans-serif;
   font-size: 26px;
   font-weight: 800;
-  color: var(--accent);
+  background: linear-gradient(135deg, #10B981, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   line-height: 1;
 }
 
@@ -282,6 +316,7 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--text-2);
+  animation: fadeIn 2s 1s ease both;
 }
 
 .scrollLine {
@@ -289,6 +324,33 @@
   height: 36px;
   background: linear-gradient(to bottom, var(--accent), transparent);
   animation: pulse 2s ease-in-out infinite;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 30px) scale(1.08); }
+}
+
+@keyframes dotsShift {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-32px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.15); }
+}
+
+@keyframes statSlide {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ─── RESPONSIVE ─── */
@@ -352,4 +414,9 @@
   }
 
   .ctas { justify-content: center; }
+
+  .photoGlow {
+    width: 220px;
+    height: 220px;
+  }
 }

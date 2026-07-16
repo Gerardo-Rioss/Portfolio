@@ -56,13 +56,13 @@
   gap: 8px;
   font-size: 13.5px;
   font-weight: 500;
-  color: #27AE60;
+  color: var(--accent);
 }
 
 .dot {
   width: 9px; height: 9px;
   border-radius: 50%;
-  background: #27AE60;
+  background: var(--accent);
   animation: pulse 2s ease-in-out infinite;
   flex-shrink: 0;
 }
@@ -79,13 +79,13 @@
   font-weight: 600;
   width: fit-content;
   transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 20px rgba(46,124,246,0.3);
+  box-shadow: 0 4px 20px rgba(16,185,129,0.3);
 }
 
 .mailBtn:hover {
   opacity: 0.9;
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(46,124,246,0.4);
+  box-shadow: 0 8px 32px rgba(16,185,129,0.35);
 }
 
 .mailBtn:focus-visible,

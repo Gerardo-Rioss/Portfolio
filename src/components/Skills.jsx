@@ -3,7 +3,7 @@ import styles from './Skills.module.css'
 
 export default function Skills() {
   return (
-    <section id="skills" className={styles.section}>
+    <section id="skills" className={`${styles.section} reveal`}>
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.label}>Tecnologías</span>

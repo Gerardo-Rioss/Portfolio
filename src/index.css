@@ -1,43 +1,47 @@
 /* ─── THEME VARIABLES ─────────────────────────────────────────── */
 :root {
-  --accent: #2E7CF6;
-  --accent-light: #6aaafb;
-  --accent-dim: rgba(46, 124, 246, 0.12);
+  --accent: #10B981;
+  --accent-light: #34D399;
+  --accent-dim: rgba(16, 185, 129, 0.12);
 
-  /* DARK theme (default) */
-  --bg: #0D1117;
-  --bg-2: #161B22;
-  --bg-3: #1C2333;
-  --border: rgba(255,255,255,0.07);
-  --text: #E6EDF3;
-  --text-2: #8B949E;
-  --text-3: #484F58;
-  --text-muted: #7A8592;
-  --card-bg: #161B22;
-  --card-hover: #1C2333;
-  --nav-bg: rgba(13,17,23,0.85);
-  --tag-bg: rgba(46,124,246,0.12);
-  --tag-color: #6aaafb;
+  /* DARK theme (default) — Emerald/Teal */
+  --bg: #0A0F0D;
+  --bg-2: #111B16;
+  --bg-3: #18251E;
+  --border: rgba(255,255,255,0.06);
+  --text: #E2E8F0;
+  --text-2: #94A3B8;
+  --text-3: #475569;
+  --text-muted: #64748B;
+  --card-bg: #111B16;
+  --card-hover: #18251E;
+  --nav-bg: rgba(10,15,13,0.85);
+  --tag-bg: rgba(16,185,129,0.12);
+  --tag-color: #34D399;
   --shadow: 0 4px 32px rgba(0,0,0,0.45);
-  --shadow-hover: 0 8px 48px rgba(46,124,246,0.18);
+  --shadow-hover: 0 8px 48px rgba(16,185,129,0.18);
 }
 
 [data-theme="light"] {
-  --bg: #F6F8FC;
+  --accent: #2D6A4F;
+  --accent-light: #40916C;
+  --accent-dim: rgba(45, 106, 79, 0.08);
+
+  --bg: #F7F6F3;
   --bg-2: #FFFFFF;
-  --bg-3: #EEF2F8;
-  --border: rgba(0,0,0,0.07);
-  --text: #0D1117;
-  --text-2: #57606A;
-  --text-3: #B0B8C4;
-  --text-muted: #6A737D;
+  --bg-3: #EFECE6;
+  --border: #E6E3DD;
+  --text: #1D1B1A;
+  --text-2: #736E6B;
+  --text-3: #9E9A95;
+  --text-muted: #8A8580;
   --card-bg: #FFFFFF;
-  --card-hover: #F0F5FF;
-  --nav-bg: rgba(246,248,252,0.88);
-  --tag-bg: rgba(46,124,246,0.10);
-  --tag-color: #1a5ccc;
-  --shadow: 0 2px 16px rgba(0,0,0,0.08);
-  --shadow-hover: 0 6px 32px rgba(46,124,246,0.15);
+  --card-hover: #F4F1EC;
+  --nav-bg: rgba(247, 246, 243, 0.85);
+  --tag-bg: rgba(45, 106, 79, 0.08);
+  --tag-color: #2D6A4F;
+  --shadow: 0 2px 16px rgba(0,0,0,0.04);
+  --shadow-hover: 0 6px 32px rgba(45, 106, 79, 0.12);
 }
 
 /* ─── RESET & BASE ────────────────────────────────────────────── */
@@ -96,4 +100,53 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* ─── SCROLL REVEAL ────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.revealLeft {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.revealLeft.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.revealRight {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.revealRight.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.revealScale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.revealScale.visible {
+  opacity: 1;
+  transform: scale(1);
 }

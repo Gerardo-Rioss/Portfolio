@@ -3,7 +3,7 @@ import styles from './Experience.module.css'
 
 export default function Experience() {
   return (
-    <section id="experience" className={styles.section}>
+    <section id="experience" className={`${styles.section} reveal`}>
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.label}>Trayectoria</span>

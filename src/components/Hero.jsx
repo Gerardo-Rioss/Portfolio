@@ -1,4 +1,5 @@
 import { heroStats, personal } from '../data/portfolio'
+import { AnimatedNumber } from './AnimatedCounter'
 import styles from './Hero.module.css'
 
 export default function Hero() {
@@ -7,10 +8,11 @@ export default function Hero() {
 
   return (
     <section id="hero" className={styles.hero}>
-      {/* Background grid */}
-      <div className={styles.grid} aria-hidden="true" />
-      {/* Glow blob */}
-      <div className={styles.blob} aria-hidden="true" />
+      {/* Floating gradient orbs */}
+      <div className={styles.orb1} aria-hidden="true" />
+      <div className={styles.orb2} aria-hidden="true" />
+      {/* Animated dots */}
+      <div className={styles.dots} aria-hidden="true" />
 
       <div className={styles.inner}>
         <div className={styles.left}>
@@ -74,14 +76,17 @@ export default function Hero() {
         <div className={styles.right}>
           <div className={styles.photoWrap}>
             <div className={styles.photoRing} />
+            <div className={styles.photoGlow} />
             <img src="/foto.png" alt="Gerardo Rios" className={styles.photo} />
             <div className={styles.photoAccent} />
           </div>
 
           <div className={styles.statsGrid}>
-            {heroStats.map((stat) => (
-              <div key={stat.label} className={styles.statCard}>
-                <span className={styles.statNum}>{stat.value}</span>
+            {heroStats.map((stat, i) => (
+              <div key={stat.label} className={styles.statCard} style={{ animationDelay: `${i * 0.1}s` }}>
+                <span className={styles.statNum}>
+                  <AnimatedNumber raw={stat.value} />
+                </span>
                 <span className={styles.statLabel}>{stat.label}</span>
               </div>
             ))}

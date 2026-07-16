@@ -29,7 +29,7 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className={styles.section}>
+    <section id="projects" className={`${styles.section} reveal`}>
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.label}>Proyectos</span>
@@ -68,6 +68,9 @@ export default function Projects() {
                   <span className={styles.overlayText}>Vista previa</span>
                 </div>
                 <span className={styles.yearBadge}>{p.year}</span>
+                {p.live && (
+                  <span className={styles.liveBadge}>🚀 Live</span>
+                )}
               </div>
 
               {/* CARD BODY */}

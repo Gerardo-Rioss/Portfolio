@@ -101,5 +101,5 @@
 }
 
 .card:hover .tag {
-  background: rgba(46,124,246,0.18);
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
 }

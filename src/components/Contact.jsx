@@ -66,7 +66,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className={styles.section}>
+    <section id="contact" className={`${styles.section} reveal`}>
       <div className={styles.container}>
         <div className={styles.inner}>
           <div className={styles.left}>

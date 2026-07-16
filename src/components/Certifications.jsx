@@ -3,7 +3,7 @@ import styles from './Certifications.module.css'
 
 export default function Certifications() {
   return (
-    <section id="certifications" className={styles.section}>
+    <section id="certifications" className={`${styles.section} reveal`}>
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.label}>Formación</span>
