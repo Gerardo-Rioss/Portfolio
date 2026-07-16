@@ -1,6 +1,6 @@
 export const personal = {
   name: "Gerardo Rios",
-  role: "Analista de Sistemas · Full Stack Developer JR",
+  role: "Analista de Sistemas · Full Stack Developer",
   location: "Barranqueras, Chaco — Argentina",
   bio: "Desarrollo interfaces y sistemas web con foco en claridad visual, mantenimiento simple y experiencias que ayuden de verdad a los usuarios.",
   email: "gerarios26@gmail.com",
