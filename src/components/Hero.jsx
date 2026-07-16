@@ -11,8 +11,6 @@ export default function Hero() {
       {/* Floating gradient orbs */}
       <div className={styles.orb1} aria-hidden="true" />
       <div className={styles.orb2} aria-hidden="true" />
-      {/* Animated dots */}
-      <div className={styles.dots} aria-hidden="true" />
 
       <div className={styles.inner}>
         <div className={styles.left}>

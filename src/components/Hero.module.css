@@ -31,17 +31,6 @@
   animation: orbFloat2 13s ease-in-out infinite;
 }
 
-/* ─── ANIMATED DOTS ─── */
-.dots {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(var(--accent) 1px, transparent 1px);
-  background-size: 32px 32px;
-  opacity: 0.15;
-  pointer-events: none;
-  animation: dotsShift 20s linear infinite;
-}
-
 /* ─── LAYOUT ─── */
 .inner {
   max-width: 1200px;
@@ -336,11 +325,6 @@
 @keyframes orbFloat2 {
   0%, 100% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(-30px, 30px) scale(1.08); }
-}
-
-@keyframes dotsShift {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-32px); }
 }
 
 @keyframes glowPulse {
