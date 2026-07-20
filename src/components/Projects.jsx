@@ -83,15 +83,6 @@ export default function Projects() {
                       <h3 className={styles.projectTitle}>{p.title}</h3>
                       <p className={styles.projectSubtitle}>{p.subtitle}</p>
                     </div>
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.githubBtn}
-                      title="Ver en GitHub"
-                    >
-                      <GitHubIcon />
-                    </a>
                   </div>
 
                   <div className={styles.tags}>
