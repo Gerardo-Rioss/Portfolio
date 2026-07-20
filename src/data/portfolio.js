@@ -67,14 +67,15 @@ export const projects = [
     title: "Ecommerce React",
     subtitle: "Clon Mercado Libre",
     year: "2025",
-    tags: ["React", "TypeScript", "Tailwind CSS"],
+    tags: ["React", "TypeScript", "Material-UI"],
     description:
-      "Plataforma de e-commerce completa con catálogo de productos, filtros dinámicos, carrito persistente y flujo de checkout. Arquitectura de componentes reutilizables con React Hooks y Context API.",
-    highlights: ["Filtros dinámicos por categoría y precio", "Carrito con persistencia en localStorage", "Checkout con validación de formularios"],
+      "Clon funcional de Mercado Libre con catálogo de productos desde FakeStore API, filtros dinámicos por categoría y precio en URL params, carrito persistente con localStorage y checkout multi-paso con validación Formik + Yup. Routing con React Router 7, data fetching con TanStack React Query, y code splitting por ruta con React.lazy.",
+    highlights: ["Filtros dinámicos persistidos en URL params", "Carrito persistente con subtotales automáticos", "Checkout multi-paso con validación", "Code splitting + vendor chunking (227 KB main bundle)", "Dark mode con CSS Custom Properties"],
     color: "#F5C518",
     emoji: "🛒",
     image: "/img-ecommerce.png",
     github: "https://github.com/Gerardo-Rioss/Clon_Ecommerce_React",
+    live: "https://ecommerce-react-clon.vercel.app",
   },
   {
     id: 3,
@@ -83,7 +84,7 @@ export const projects = [
     year: "2024",
     tags: ["Django", "Python", "PostgreSQL"],
     description:
-      "Blog colaborativo con sistema de roles jerárquicos (usuarios, colaboradores y administradores), publicaciones con categorías, comentarios anidados y panel de administración.",
+      "Blog colaborativo con sistema de roles jerárquicos (usuarios, colaboradores y administradores), publicaciones con categorías y etiquetas, comentarios anidados con moderación, panel de administración completo y buscador full-text.",
     highlights: ["Sistema de roles y permisos", "Editor de publicaciones", "Panel de administración completo"],
     color: "#27AE60",
     emoji: "🍳",
@@ -111,7 +112,7 @@ export const projects = [
     year: "2024",
     tags: ["Power BI", "DAX", "Power Query"],
     description:
-      "Dashboard interactivo para seguimiento de ventas, análisis de clientes y monitoreo de KPIs estratégicos. Incluye drill-down por región, comparativas temporales y alertas visuales.",
+      "Dashboard interactivo para seguimiento de ventas con KPIs estratégicos, análisis de rentabilidad por producto y segmentación de clientes. Incluye drill-down por región, comparativas temporales, alertas visuales por umbrales dinámicos y exportación a CSV.",
     highlights: ["KPIs en tiempo real con DAX", "Drill-down por región y período", "Filtros dinámicos y slicers interactivos"],
     color: "#8E44AD",
     emoji: "📊",
@@ -125,7 +126,7 @@ export const projects = [
     year: "2023",
     tags: ["C#", ".NET Framework", "SQL Server"],
     description:
-      "Aplicación de escritorio para gestión de stock, agenda de citas, base de clientes y reportes financieros con dashboard de KPIs.",
+      "Aplicación de escritorio integral para peluquería con gestión de stock, agenda de citas con recordatorios, base de clientes con historial de servicios y dashboard financiero con KPIs de facturación, gastos y rentabilidad mensual.",
     highlights: ["Gestión de agenda y citas", "Control de stock en tiempo real", "Reportes financieros automáticos"],
     color: "#E91E8C",
     emoji: "✂️",
@@ -139,7 +140,7 @@ export const projects = [
     year: "2022",
     tags: ["VB.NET", "SQL Server"],
     description:
-      "Sistema de escritorio para gestión integral de ventas, clientes e inventario con reportes automáticos y control de stock en tiempo real.",
+      "Sistema de escritorio completo para showroom de ropa con gestión de ventas, clientes e inventario, reportes automáticos de facturación por período, control de stock en tiempo real con alertas de reposición y módulo de proveedores.",
     highlights: ["Gestión de inventario en tiempo real", "Reportes de ventas automáticos", "Base de clientes con historial"],
     color: "#2E7CF6",
     emoji: "👗",
